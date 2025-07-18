@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LinkTree Penjualan</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap');
+        
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+        
+        .profile-img {
+            width: 120px;
+            height: 120px;
+            border: 4px solid white;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        
+        .link-card {
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+        }
+        
+        .link-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+            gap: 10px;
+            margin-top: 20px;
+        }
+        
+        .product-card {
+            position: relative;
+            overflow: hidden;
+            border-radius: 8px;
+            height: 150px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        
+        .product-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.3s ease;
+        }
+        
+        .product-card:hover .product-img {
+            transform: scale(1.05);
+        }
+    </style>
+</head>
+<body class="flex flex-col items-center">
+    <div class="w-full max-w-md">
+        <!-- Profil Section -->
+        <div class="flex flex-col items-center mb-8">
+            <img src="q1.png" alt="Foto Profil" class="profile-img rounded-full mb-4">
+            <h1 class="text-2xl font-bold text-gray-800 mb-1">AR-RAAZAQ</h1>
+            <p class="text-gray-600 text-center mb-4">BAJU MUSLIM ELEGAN,NYAMAN DAN TERJANGKAU</p>
+        </div>
+        
+        <!-- Link Section -->
+        <div class="space-y-4 mb-8">
+            <a href="https://wa.me/6285165675350?text=Halo,%20saya%20tertarik%20dengan%20produk%20Anda" 
+               class="block bg-green-500 hover:bg-green-600 text-white text-center py-3 px-6 rounded-lg font-medium link-card">
+                📱 Pesan via WhatsApp
+            </a>
+            
+            <a href="https://www.instagram.com/ar_raazaq_/" 
+               class="block bg-gradient-to-r from-purple-500 to-pink-500 hover:from-purple-600 hover:to-pink-600 text-white text-center py-3 px-6 rounded-lg font-medium link-card">
+                📸 Kunjungi Instagram Kami
+            </a>
+        </div>
+        
+        <!-- Katalog Produk Section -->
+        <div class="bg-white rounded-xl p-6 shadow-lg">
+            <h2 class="text-xl font-bold text-gray-800 mb-4 text-center">Katalog Produk</h2>
+            
+            <div class="gallery">
+                <div class="product-card">
+                    <img src="w1.png" alt="Produk unggulan pertama dengan kemasan warna-warni di atas meja kayu" class="product-img">
+                </div>
+                <div class="product-card">
+                    <img src="w2.png" alt="Produk kedua yang ditampilkan dari dekat untuk melihat detail tekstur" class="product-img">
+                </div>
+                <div class="product-card">
+                    <img src="w3.png" alt="Tiga varian produk berbeda disusun rapi dengan background netral" class="product-img">
+                </div>
+                <div class="product-card">
+                    <img src="w7.png" alt="Foto gaya hidup dengan produk sedang digunakan oleh model" class="product-img">
+                </div>
+                <div class="product-card">
+                    <img src="w5.png" alt="Koleksi produk disusun dalam bentuk piramida dengan pencahayaan profesional" class="product-img">
+                </div>
+                <div class="product-card">
+                    <img src="w6.png" alt="Close-up komposisi produk dengan dekorasi yang estetik" class="product-img">
+                </div>
+            </div>
+            
+            <button onclick="showMoreProducts()" class="mt-4 w-full bg-blue-500 hover:bg-blue-600 text-white py-2 px-4 rounded-lg font-medium transition">
+                Lihat Lebih Banyak
+            </button>
+        </div>
+        
+        <!-- Footer -->
+        <div class="text-center text-gray-500 text-sm mt-8">
+            © 2023 Nama Toko Anda. All Rights Reserved.
+        </div>
+    </div>
+
+    <script>
+        function showMoreProducts() {
+            const gallery = document.querySelector('.gallery');
+            
+            // Produk tambahan yang akan dimunculkan
+            const additionalProducts = [
+                { src: 'w4.png', alt: 'Produk keempat dengan desain modern dan elegan' },
+                { src: 'w8.png', alt: 'Produk kelima dengan warna cerah dan menarik' },
+                { src: 'w9.png', alt: 'Produk keenam dengan detail yang menonjol' },
+                { src: 'w.png', alt: 'Produk ketujuh dengan tampilan minimalis' }
+            ];
+            
+            additionalProducts.forEach(product => {
+                const productCard = document.createElement('div');
+                productCard.className = 'product-card';
+                productCard.innerHTML = `<img src="${product.src}" alt="${product.alt}" class="product-img">`;
+                gallery.appendChild(productCard);
+            });
+            
+            // Sembunyikan tombol jika semua produk sudah ditampilkan
+            event.target.style.display = 'none';
+        }
+    </script>
+</body>
+</html>
+
